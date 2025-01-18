@@ -6,6 +6,7 @@
 - tailwindcss
 - ThreeJS
 - GSAP
+- Graphql
 
 ### cd frontend 
 - npm install
