@@ -1,3 +1,12 @@
+### Finance Management System 
+- graphql
+- react
+- typescript
+- mongodb
+- tailwindcss
+- ThreeJS
+- GSAP
+
 ### cd frontend 
 - npm install
 - npm install -D typescript @types/node @types/react @types/react-dom

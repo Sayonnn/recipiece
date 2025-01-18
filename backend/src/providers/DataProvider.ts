@@ -5,7 +5,10 @@ export const origins:string[] = [
     `http://localhost:3001`,
     `http://localhost:3002`,
     `http://localhost:5173`,
+    `http://localhost:8081`,
+    `http://localhost:8081/graphql`,
 ]
+
 export const errors: typeError[] = [
     { status: 400, message: "Bad Request: The server could not understand the request due to invalid syntax." },
     { status: 401, message: "Unauthorized: The client must authenticate itself to get the requested response." },

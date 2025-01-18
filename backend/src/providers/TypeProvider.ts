@@ -3,4 +3,9 @@ export type typeError = {
   message: string;
 };
 
+export type typeRecipeIngredient = {
+  name:String;
+  quantity:string[]
+}
+
 export type typeStatus = number

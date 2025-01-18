@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+input,textarea{
+    padding:5px;
+    border:1px solid #eaeaea;
+    border-radius: 5px;
+}
