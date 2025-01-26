@@ -1,4 +1,4 @@
-import { typeError } from "./TypeProvider";
+import { typeAcc, typeError } from "./TypeProvider";
 
 export const origins:string[] = [
     `http://localhost:3000`,
@@ -22,3 +22,9 @@ export const errors: typeError[] = [
     { status: 503, message: "Service Unavailable: The server is not ready to handle the request." },
     { status: 504, message: "Gateway Timeout: The server is acting as a gateway or proxy and did not receive a timely response from the upstream server." }
 ];
+
+
+export const acc:typeAcc ={
+    username:"Family",
+    password:"Tilas123"
+}

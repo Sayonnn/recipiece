@@ -1,8 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: roboto;
+}
+
+
 input,textarea{
     padding:5px;
     border:1px solid #eaeaea;
     border-radius: 5px;
+}
+*:focus{
+    outline:none;
 }

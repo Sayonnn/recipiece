@@ -6,7 +6,7 @@ type typeTitle = {
 
 function Title({children} : typeTitle) {
   return (
-    <h3 className='flex font-bold text-sm p-2 border uppercase justify-between items-center'>
+    <h3 className='flex font-roboto  text-sm   uppercase justify-between items-center'>
         {children}
     </h3>
   )

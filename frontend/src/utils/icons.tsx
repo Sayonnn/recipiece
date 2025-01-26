@@ -19,12 +19,13 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { SiHostinger } from "react-icons/si";
-import { FaGithub,FaSearch,FaPlus,FaTrash,FaEdit} from "react-icons/fa";
+import { FaGithub,FaSearch,FaPlus,FaTrash,FaEdit,FaEye,FaEyeSlash} from "react-icons/fa";
 import { TbReload } from "react-icons/tb";
 
 
 const smIcon:number = 15;
 const mdIcon:number = 30;
+const lgIcon:number = 50;
 
 export const icons = {
     iLightFill: <FaLightbulb size={mdIcon}/>,
@@ -32,10 +33,12 @@ export const icons = {
     iReloadLine: <TbReload size={smIcon}/>,
     iFaPlus: <FaPlus size={smIcon}/>,
     iFaEdit: <FaEdit size={smIcon}/>,
+    iFaEye: <FaEye size={smIcon}/>,
+    iFaEyeSlash: <FaEyeSlash size={smIcon}/>,
     iFaTrash: <FaTrash size={smIcon}/>,
     iDarkFill: <MdDarkMode size={mdIcon}/>,
     iMenuFill: <IoMenu size={mdIcon}/>,
-    iAddFill:<MdAddBox size={mdIcon}/>,
+    iAddFill:<MdAddBox size={lgIcon}/>,
     iDashFill:<MdDashboard size={mdIcon}/>,
     iTaskFill:<SiTask size={mdIcon}/>,
     iContactFill:<BsTelephoneFill size={mdIcon}/>,

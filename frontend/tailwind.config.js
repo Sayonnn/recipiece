@@ -4,6 +4,13 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        tangerine: ["Tangerine", "serif"],
+        sacramento: ["Sacramento", "serif"],
+        greatVibe: ["Great Vibes", "serif"],
+        sixtyFour: ["Six Caps", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"],
+      },
       colors: { 
         light: "#ffffff", // Light mode background
         dark: "#1a1a1a", // Dark mode background
@@ -14,5 +21,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 };

@@ -33,7 +33,7 @@ export const GET_RECIPE = gql`
 export const CREATE_RECIPE = gql`
   mutation CreateRecipe(
     $name: String!
-    $description: String!
+    $description: String
     $ingredients: [IngredientInput!]!
   ) {
     createRecipe(
@@ -57,7 +57,7 @@ export const UPDATE_RECIPE = gql`
     $id: ID!
     $name: String
     $description: String
-    $ingredients: [IngredientInput]
+    $ingredients: [IngredientInput!]
   ) {
     updateRecipe(
       id: $id
