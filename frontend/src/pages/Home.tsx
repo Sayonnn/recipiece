@@ -6,9 +6,13 @@ import Modal from "../components/Modal";
 import { useGraphQL } from "../contexts/graphql";
 import ViewRecipe from "../components/crud/ViewRecipe";
 import UpdateRecipe from "../components/crud/UpdateRecipe";
+import { useEffect } from "react";
 
 const Home = () => {
   const { toggleModal, isModalOpen, isViewerOpen,isEditorOpen } = useGraphQL();
+  useEffect(() => {
+    alert("Good day " + localStorage.getItem("user") +", Welcome to Recipiece");
+  }, []); 
 
   return (
     <main className={`md:px-40 px-0 relative `}>

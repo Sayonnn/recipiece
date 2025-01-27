@@ -23,10 +23,12 @@ function Login() {
 
   const goLogin = () => {
     setLoading(true);
-    if (values.username !== acc.username || values.password !== acc.password) {
+    if ( values.password !== acc.password) {
       setKnown(false);
       return;
     }
+    localStorage.setItem("user", values.username);
+
     setKnown(true);
     setTimeout(() => {
       navigate("/home");

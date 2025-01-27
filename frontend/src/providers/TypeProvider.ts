@@ -48,6 +48,8 @@ export type GraphQLContextType = {
   isEditorOpen:boolean;
   isViewerOpen:boolean;
   recipe?: typeRecipe;
+  recipesClone:TypeRecipes[];
+  setRecipesClone:(recipes:TypeRecipes[]) => void;
 };
 
 export type typeAddButton = {

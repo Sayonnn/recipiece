@@ -22,7 +22,3 @@ export const verifyToken = (token) => {
   }
 };
 
-export const setCookie = (token) => {
-
-
-}

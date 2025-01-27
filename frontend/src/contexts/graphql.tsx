@@ -24,6 +24,7 @@ export function GraphQLProvider({ children }: typeChildren) {
   const [deleteRecipe] = useMutation(DELETE_RECIPE);
   const [createRecipe] = useMutation(CREATE_RECIPE);
   const [updateRecipe] = useMutation(UPDATE_RECIPE);
+  const [recipesClone, setRecipesClone] = useState<TypeRecipes[]>([]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditorOpen, setIsEditorOpen] = useState(false);
@@ -122,6 +123,8 @@ export function GraphQLProvider({ children }: typeChildren) {
         isModalOpen,
         isViewerOpen,
         recipe,
+        recipesClone,
+        setRecipesClone,
       }}
     >
       {children}

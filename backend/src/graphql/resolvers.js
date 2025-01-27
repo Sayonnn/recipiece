@@ -48,7 +48,7 @@ const resolvers = {
         throw new Error("Error adding ingredient: " + error.message);
       }
     },
-    createRecipe: async (_, { name, description, ingredients }, { userId }) => {
+    createRecipe: async (_, { name, description, ingredients }, { id }) => {
       try {
         const newRecipe = new recipeModel({
           recipeName: name,
@@ -145,7 +145,7 @@ const resolvers = {
     refreshToken: async(_, { token }) => {
       try {
         const decodedToken = verifyToken(token);
-        const user = await authenticationModel.findById(decodedToken.userId);
+        const user = await authenticationModel.findById(decodedToken.id);
         if (!user) {
           throw new Error("User not found");
         }

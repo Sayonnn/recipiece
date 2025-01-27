@@ -17,3 +17,9 @@ input,textarea{
 *:focus{
     outline:none;
 }
+/* 
+.scrollbar-sm{
+    scrollbar-width: thin;
+    scrollbar-color: #dad9ce #f5f5f5;
+}   
+ */

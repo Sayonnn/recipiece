@@ -4,11 +4,9 @@ import NavBar from "./NavBar";
 import Recipe from "./Recipe";
 import { useGraphQL } from "../contexts/graphql";
 import Pagination from "./Pagination";
-import { TypeRecipes } from "../providers/TypeProvider";
 
 const RecipeList: React.FC = () => {
-  const { recipes } = useGraphQL();
-  const [recipesClone, setRecipesClone] = React.useState<TypeRecipes[]>([]);
+  const { recipes,recipesClone, setRecipesClone } = useGraphQL();
   const boundary = 5; // serve as the recipe appearance limit
   const [start, setStart] = React.useState(0);
   const [offset, setOffset] = React.useState(boundary);
