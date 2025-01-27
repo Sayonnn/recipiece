@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node build/server.js",
-    "build": "tsc",
-    "dev":"npx nodemon"
+    "start": "npx tsx src/server.ts",
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",
