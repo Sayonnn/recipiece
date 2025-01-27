@@ -5,7 +5,7 @@ export const origins = [
     `http://localhost:3002`,
     `http://localhost:5173`,
     `http://localhost:8081`,
-    `http://localhost:8081/graphql`,
+    `https://recipiece.laudzioncascalla.pro`
 ]
 
 export const errors = [
