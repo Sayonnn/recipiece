@@ -1,4 +1,4 @@
-import { verifyToken } from "../utils/jwt";
+import { verifyToken } from "../utils/jwt.js";
 
 export const context = async ({ req }) => {
   const token = req.headers.authorization?.split(" ")[1];

@@ -1,10 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
-import { apollo } from "./configs/apollo.config";
-import { connectMongoDB } from "./configs/mongoose.config";
+import { apollo } from "./configs/apollo.config.js";
+import { connectMongoDB } from "./configs/mongoose.config.js";
 import { expressMiddleware } from "@apollo/server/express4";
-import { corsConfig } from "./configs/cors.config";
-import Error from "./providers/ErrorProvider";
+import { corsConfig } from "./configs/cors.config.js";
+import Error from "./providers/ErrorProvider.js";
 dotenv.config();
 
 const app = express();

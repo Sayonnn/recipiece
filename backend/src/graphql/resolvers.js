@@ -1,6 +1,6 @@
-import { generateToken } from "../utils/jwt";
-import authenticationModel from "../models/authenticationModel";
-import recipeModel from "../models/recipeModel";
+import { generateToken } from "../utils/jwt.js";
+import authenticationModel from "../models/authenticationModel.js";
+import recipeModel from "../models/recipeModel.js";
 import bcrypt from "bcryptjs";
  
 const resolvers = {
