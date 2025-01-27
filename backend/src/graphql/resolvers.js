@@ -64,10 +64,7 @@ const resolvers = {
     },
     updateRecipe: async (_, { id, name, description, ingredients }) => {
       try {
-        console.log("Received ingredients:", ingredients);
-
         const recipe = await recipeModel.findById(id);
-        console.log(recipe)
         if (!recipe) {
           throw new Error("Recipe not found");
         }

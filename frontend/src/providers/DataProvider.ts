@@ -1,4 +1,8 @@
 import { typeAcc, typeError } from "./TypeProvider";
+import bg1 from '../assets/images/bg1.jpg'
+import bg2 from '../assets/images/bg2.jpg'
+import bg3 from '../assets/images/bg3.jpg'
+import bg4 from '../assets/images/bg4.jpg'
 
 export const origins:string[] = [
     `http://localhost:3000`,
@@ -28,3 +32,10 @@ export const acc:typeAcc ={
     username:"Family",
     password:"Tilas123"
 }
+
+export const bgs:string[] =[
+    bg1,
+    bg2,
+    bg3,
+    bg4
+]
