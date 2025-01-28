@@ -21,6 +21,10 @@ import { SiGmail } from "react-icons/si";
 import { SiHostinger } from "react-icons/si";
 import { FaGithub,FaSearch,FaPlus,FaTrash,FaEdit,FaEye,FaEyeSlash} from "react-icons/fa";
 import { TbReload } from "react-icons/tb";
+import { TbLayoutDashboardFilled } from "react-icons/tb";
+import { GiKnifeFork } from "react-icons/gi";
+import { TiHome } from "react-icons/ti";
+import { IoIosAddCircle } from "react-icons/io";
 
 
 const smIcon:number = 15;
@@ -28,9 +32,13 @@ const mdIcon:number = 30;
 const lgIcon:number = 50;
 
 export const icons = {
+    iHomeFill: <TiHome size={mdIcon}/>,
+    iAddCircleFill: <IoIosAddCircle size={mdIcon}/>,
     iLightFill: <FaLightbulb size={mdIcon}/>,
     iSearchLine: <FaSearch size={smIcon}/>,
     iReloadLine: <TbReload size={smIcon}/>,
+    iDash:<TbLayoutDashboardFilled size={lgIcon}/>,
+    iFork:<GiKnifeFork size={mdIcon}/>,
     iFaPlus: <FaPlus size={smIcon}/>,
     iFaEdit: <FaEdit size={smIcon}/>,
     iFaEye: <FaEye size={smIcon}/>,

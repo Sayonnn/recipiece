@@ -3,8 +3,23 @@ import { ApolloProvider } from '@apollo/client';
 import client from './configs/apolloClient';
 import Home from './pages/Home';
 import Welcome from './pages/Welcome';
+import { useEffect } from 'react';
+import { playAudio1 } from './utils/audioPlayer';
 
 function App() {
+  useEffect(() => {
+    const handleInteraction = () => {
+      playAudio1(); 
+      // playAudio2();
+      document.removeEventListener("click", handleInteraction); 
+    };
+
+    document.addEventListener("click", handleInteraction);
+    return () => {
+      document.removeEventListener("click", handleInteraction);
+    };
+  }, []);
+
   return (
     <ApolloProvider client={client}>
       <Router>

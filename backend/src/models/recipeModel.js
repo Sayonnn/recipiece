@@ -9,6 +9,7 @@ const ingredientSchema = new Schema({
 // Define Recipe schema
 const recipeSchema = new Schema({
   recipeName: { type: String, required: true },
+  creator: { type: String, required: true },
   description: { type: String },
   createdAt: { type: String, default: new Date().toLocaleDateString() },
   thumbsUp: { type: Number, default: 0 },

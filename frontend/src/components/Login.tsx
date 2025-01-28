@@ -2,7 +2,7 @@ import Button from "./custom/Button";
 import logo from "../assets/images/4.png";
 import { InputField, PasswordField } from "./custom/input";
 import logo1 from "../assets/images/logo3.png";
-import { useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { acc } from "../providers/DataProvider";
 
@@ -17,13 +17,12 @@ function Login() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setValues((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
   const goLogin = () => {
     setLoading(true);
-    if ( values.password !== acc.password) {
+    if (values.password !== acc.password) {
       setKnown(false);
       return;
     }
@@ -32,22 +31,26 @@ function Login() {
     setKnown(true);
     setTimeout(() => {
       navigate("/home");
-    setLoading(false);
+      setLoading(false);
     }, 2000);
   };
+
+
+
   return (
-    <section className=" rounded-lg relative gap-2 shadow-lg">
+    <section className="rounded-lg relative gap-2 shadow-lg overflow-hidden">
       <img
         src={logo1}
-        className="absolute  object-contain  md:min-w-[400px] min-w-[500px] z-1 md:bottom-[-80px] md:right-[-250px] bottom-[-150px] right-[-220px] md:-rotate-12 rotate-12"
+        loading="lazy"
+        className="absolute object-contain md:min-w-[400px] min-w-[500px] z-1 md:bottom-[-80px] md:right-[-250px] bottom-[-150px] right-[-220px] md:-rotate-12 rotate-12"
         style={{
-          filter: "drop-shadow(10px 0px 0px rgba(0, 0, 0, 0.3))",
+          filter: "drop-shadow(10px 0px 0px rgba(0, 0, 0, 0.9))",
         }}
         alt="Background"
       />
-      <div className="  bg-orange-50/90 flex flex-col justify-center items-center rounded-xl p-4 gap-2 z-[10]">
-        <div className="w-20 aspect-square ">
-          <img src={logo} className="object-contain w-full h-full" alt="Logo" />
+      <div className="bg-orange-50/95 flex flex-col justify-center items-center rounded-xl p-4 gap-2 z-[10]">
+        <div className="w-20 aspect-square">
+          <img src={logo} className="object-contain w-full h-full" loading="lazy" alt="Logo" />
         </div>
         <h1 className="text-2xl font-greatVibe">Recipiece</h1>
         <div className="flex flex-col gap-2 z-10">
@@ -74,7 +77,6 @@ function Login() {
               {known ? "Welcome, enjoy cooking!" : "Hey, who are you?"}
             </p>
           )}
-
           <Button type="submit" onClick={goLogin} style="hover:bg-orange-200 ">
             Login
           </Button>

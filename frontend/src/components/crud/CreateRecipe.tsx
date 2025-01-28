@@ -1,15 +1,18 @@
 // src/components/CreateRecipe.tsx
 import React, { useState } from "react";
-import { Ingredient, typeCreateRecipe } from "../../providers/TypeProvider";
+import { Ingredient } from "../../providers/TypeProvider";
 import Title from "../custom/Title";
 import Button from "../custom/Button";
 import logo from "../../assets/images/4.png";
 import { icons } from "../../utils/icons";
 import { useGraphQL } from "../../contexts/graphql";
 
-const CreateRecipe: React.FC<typeCreateRecipe> = ({ closeModal }) => {
-  const { addRecipe } = useGraphQL();
+const CreateRecipe: React.FC = () => {
+  const { addRecipe,toggleModal } = useGraphQL();
   const [name, setName] = useState("");
+  const [creator] = useState(() =>{
+    return localStorage.getItem("user") || "Chef";
+  });
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState<Ingredient[]>([
     { name: "", quantity: "" },
@@ -17,7 +20,9 @@ const CreateRecipe: React.FC<typeCreateRecipe> = ({ closeModal }) => {
 
   const saveRecipe = async (e: React.FormEvent) => {
     e.preventDefault();
-    addRecipe(name, description, ingredients);
+    if(creator){
+      addRecipe(name,creator, description, ingredients);
+    }
   };
 
   const handleIngredientChange = (
@@ -48,7 +53,7 @@ const CreateRecipe: React.FC<typeCreateRecipe> = ({ closeModal }) => {
   return (
     <form
       onSubmit={saveRecipe}
-      className="border flex flex-col p-4 gap-2 md:w-[25%] w-full bg-orange-50 rounded-lg shadow-lg"
+      className="border flex flex-col p-4 gap-2 md:w-[25%] w-[80%] bg-orange-50 rounded-lg shadow-lg"
     >
       <div className="flex justify-center w-full">
         <img src={logo} className="object-contain w-20 h-20 "></img>
@@ -58,13 +63,15 @@ const CreateRecipe: React.FC<typeCreateRecipe> = ({ closeModal }) => {
         placeholder="Recipe Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        className="text-sm"
+
         required
       />
       <textarea
         placeholder="Procedure"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="max-h-[150px]"
+        className="max-h-[150px] min-h-[150px] resize-none text-sm"
         required
       />
       <Title>
@@ -83,6 +90,8 @@ const CreateRecipe: React.FC<typeCreateRecipe> = ({ closeModal }) => {
               name="name"
               onChange={(e) => handleIngredientChange(e, index)}
               required
+              className="text-xs"
+
               autoComplete="off"
 
             />
@@ -93,6 +102,8 @@ const CreateRecipe: React.FC<typeCreateRecipe> = ({ closeModal }) => {
               name="quantity"
               onChange={(e) => handleIngredientChange(e, index)}
               required
+              className="text-xs"
+
               autoComplete="off"
 
             />
@@ -104,7 +115,7 @@ const CreateRecipe: React.FC<typeCreateRecipe> = ({ closeModal }) => {
       </section>
 
       <div className="flex items-center justify-center gap-2 ">
-        <Button type="button" style="w-full" onClick={closeModal}>
+        <Button type="button" style="w-full" onClick={(e) => toggleModal(e)}>
           Cancel
         </Button>
         <Button type="submit" style="w-full bg-orange-200">

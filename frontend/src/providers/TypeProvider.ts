@@ -37,9 +37,9 @@ export type typeChildren = {
 export type GraphQLContextType = {
   recipes: TypeRecipes[];
   removeRecipe: (id: string) => void;
-  addRecipe: (name:string,description:string,ingredients:Ingredient[]) => void;
+  addRecipe: (name:string,creator:string,description:string,ingredients:Ingredient[]) => void;
   editRecipe: (id:string,name:string,description:string,ingredients:Ingredient[]) => void;
-  toggleModal:() => void;
+  toggleModal:(e: React.MouseEvent<HTMLButtonElement,MouseEvent>) => void;
   isModalOpen:boolean;
   toggleViewer:(recipe:typeRecipe) => void;
   toggleEditor:(recipe:typeRecipe) => void;
@@ -53,9 +53,17 @@ export type GraphQLContextType = {
 };
 
 export type typeAddButton = {
-  openModal: () => void;
+  openModal?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  
 }
 
 export type typeCreateRecipe = {
   closeModal: () => void;
+}
+
+export type typeButton = {
+  type:"reset" | "button" | "submit",
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  children:ReactNode;
+  style?:string;
 }

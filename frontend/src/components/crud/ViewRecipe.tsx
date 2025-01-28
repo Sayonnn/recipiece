@@ -24,7 +24,7 @@ const ViewRecipe: React.FC = () => {
       onDoubleClick={closeViewer}
     >
       <div
-        className={`flex-1 rounded-md md:p-4 p-0 relative bg-white   overflow-y-hidden scrollbar-sm scrollbar-none`}
+        className={`flex-1 rounded-md md:p-0 p-0 relative bg-white   overflow-y-hidden scrollbar-sm scrollbar-none`}
       >
         {/* bg blur image */}
         <img

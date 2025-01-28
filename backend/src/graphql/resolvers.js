@@ -48,10 +48,11 @@ const resolvers = {
         throw new Error("Error adding ingredient: " + error.message);
       }
     },
-    createRecipe: async (_, { name, description, ingredients }, { id }) => {
+    createRecipe: async (_, { name,creator, description, ingredients }, { id }) => {
       try {
         const newRecipe = new recipeModel({
           recipeName: name,
+          creator: creator,
           description: description,
           ingredients: ingredients,
         });

@@ -4,6 +4,7 @@ export const typeDefs = `#graphql
 type Item { 
   id: ID!
   recipeName: String!
+  creator:String!
   description: String
   createdAt: String!
   thumbsUp: Int!
@@ -54,7 +55,7 @@ type Query {
 type Mutation {
   # recipe mutations
   addIngredient(id: ID!, ingredient: IngredientInput!): Item!
-  createRecipe(name: String!, description: String, ingredients: [IngredientInput!]!): Item!
+  createRecipe(name: String!,creator:String!, description: String, ingredients: [IngredientInput!]!): Item!
   updateRecipe(id: ID!, name: String, description: String, ingredients: [IngredientInput!]): Item!
   deleteRecipe(id: ID!): Boolean
 

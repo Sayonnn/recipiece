@@ -1,0 +1,21 @@
+/* Marquee.css */
+.marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .marqueeText {
+    display: inline-block;
+    animation: scroll-left 10s linear infinite;
+  }
+  
+  @keyframes scroll-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  

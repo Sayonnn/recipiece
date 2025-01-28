@@ -58,7 +58,7 @@ const UpdateRecipe: React.FC = () => {
   return (
     <form
       onSubmit={updateRecipe}
-      className="border flex flex-col p-4 gap-2 md:w-[25%] w-full bg-orange-50 rounded-lg shadow-lg"
+      className="border flex flex-col p-4 gap-2 md:w-[25%] w-[80%] bg-orange-50 rounded-lg shadow-lg"
     >
        <div className="flex justify-center w-full">
         <img src={logo} className="object-contain w-20 h-20 "></img>
@@ -68,13 +68,14 @@ const UpdateRecipe: React.FC = () => {
         placeholder="Recipe Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        className="text-sm"
         required
       />
       <textarea
         placeholder="Procedure"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="max-h-[150px]"
+        className="max-h-[150px]  min-h-[150px] resize-none text-sm"
         required
       />
       <Title>
@@ -93,6 +94,7 @@ const UpdateRecipe: React.FC = () => {
               name="name"
               onChange={(e) => handleIngredientChange(index,e)}
               autoComplete="off"
+              className="text-xs"
 
               required
             />
@@ -103,6 +105,8 @@ const UpdateRecipe: React.FC = () => {
               name="quantity"
               onChange={(e) => handleIngredientChange(index,e)}
               autoComplete="off"
+              className="text-xs"
+
               required
             />
             <Button type="button" onClick={() => removeIngredient(index)}>

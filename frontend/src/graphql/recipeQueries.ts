@@ -6,6 +6,7 @@ export const GET_RECIPES = gql`
     getRecipes(limit: $limit, offset: $offset) {
       id
       recipeName
+      creator
       description
       ingredients {
         name
@@ -20,6 +21,7 @@ export const GET_RECIPE = gql`
     getRecipe(id: $id) {
       id
       recipeName
+      creator
       description
       ingredients {
         name
@@ -33,16 +35,19 @@ export const GET_RECIPE = gql`
 export const CREATE_RECIPE = gql`
   mutation CreateRecipe(
     $name: String!
+    $creator: String!
     $description: String
     $ingredients: [IngredientInput!]!
   ) {
     createRecipe(
       name: $name
+      creator:$creator
       description: $description
       ingredients: $ingredients
     ) {
       id
       recipeName
+      creator
       description
       ingredients {
         name

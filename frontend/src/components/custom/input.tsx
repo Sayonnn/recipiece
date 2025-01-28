@@ -17,6 +17,7 @@ function InputField({ type, onChange, value, name, placeholder }: typeInput) {
       onChange={onChange}
       value={value}
       name={name}
+      autoComplete="off"
       placeholder={placeholder}
       className="p-2 border rounded-lg focus:outline-none "
     ></input>
@@ -38,6 +39,7 @@ function PasswordField({ onChange, value, name, placeholder }: typeInput) {
         value={value}
         name={name}
         placeholder={placeholder}
+        autoComplete="off"
         className="p-2 border border-none    rounded-tl-lg rounded-br-lg focus:outline-none"
       ></input>
       <button onClick={togglePasswordVisibility} className="  p-2 border-l">{isPasswordVisible ? icons.iFaEyeSlash : icons.iFaEye}</button>

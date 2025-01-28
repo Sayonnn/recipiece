@@ -53,12 +53,13 @@ export function GraphQLProvider({ children }: typeChildren) {
 
   const addRecipe = async (
     name: string,
+    creator:string,
     description: string,
     ingredients: Ingredient[]
   ) => {
     const newName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
     await createRecipe({
-      variables: { name: newName, description, ingredients },
+      variables: { name: newName,creator:creator, description, ingredients },
     });
     window.location.reload();
   };
@@ -88,7 +89,11 @@ export function GraphQLProvider({ children }: typeChildren) {
     }
   }, [data]);
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const toggleModal = (e: React.MouseEvent<HTMLButtonElement,MouseEvent>) => {
+    e.stopPropagation(); 
+    setIsModalOpen(!isModalOpen);
+  };
+
   const toggleViewer = (recipe: typeRecipe) => {
     setRecipe(recipe);
     setIsViewerOpen(!isViewerOpen);

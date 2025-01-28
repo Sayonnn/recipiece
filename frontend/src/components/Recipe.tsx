@@ -1,11 +1,11 @@
 import { typeRecipe } from "../providers/TypeProvider";
 import { icons } from "../utils/icons";
 import { useGraphQL } from "../contexts/graphql";
-import {  useState } from "react";
+import { useState } from "react";
 
 function Recipe({ recipe }: typeRecipe) {
   const { removeRecipe, toggleViewer, toggleEditor } = useGraphQL();
-  
+
   const [user] = useState(() => {
     return localStorage.getItem("user") || "";
   });
@@ -17,14 +17,13 @@ function Recipe({ recipe }: typeRecipe) {
     >
       <span className="font-roboto  w-full flex justify-between items-center ">
         <span className="text-[10px] rounded-tr-md bg-white p-1 border-l border-t  ">
-          Sayon
+          {/* {recipe.creator} */}
         </span>
         {user === "admin" && (
-            <span className="flex gap-2">
-        
+          <div className="flex gap-2">
             <span
               className="p-1 rounded-tl-md text-orange-900 bg-white border-r border-t cursor-pointer"
-              onClick={() => toggleEditor({recipe})}
+              onClick={() => toggleEditor({ recipe })}
             >
               {icons.iFaEdit}
             </span>
@@ -34,12 +33,11 @@ function Recipe({ recipe }: typeRecipe) {
             >
               {icons.iFaTrash}
             </span>
-          </span>
+          </div>
         )}
-      
       </span>
       <span className="" onClick={() => toggleViewer({ recipe })}>
-        <h1 className="font-greatVibe text-xl border-b border-l border-r p-4 text-center bg-white rounded-br-md rounded-bl-md">
+        <h1 className="font-greatVibe md:text-xl text-2xl border-b border-l border-r p-4 text-center bg-white rounded-br-md rounded-bl-md">
           {recipe.recipeName}
         </h1>
       </span>
