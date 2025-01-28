@@ -15,6 +15,7 @@ import {
 } from "../graphql/recipeQueries";
 
 import { useMutation, useQuery } from "@apollo/client";
+import Loading from "../components/custom/Loading";
 
 const graphqlContext = createContext<GraphQLContextType | null>(null);
 
@@ -108,7 +109,7 @@ export function GraphQLProvider({ children }: typeChildren) {
     setIsEditorOpen(!isEditorOpen);
   };
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
