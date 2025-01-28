@@ -1,5 +1,5 @@
 // src/components/CreateRecipe.tsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Ingredient } from "../../providers/TypeProvider";
 import Title from "../custom/Title";
 import Button from "../custom/Button";
@@ -8,21 +8,22 @@ import { icons } from "../../utils/icons";
 import { useGraphQL } from "../../contexts/graphql";
 
 const CreateRecipe: React.FC = () => {
-  const { addRecipe,toggleModal } = useGraphQL();
+  const { addRecipe, toggleModal } = useGraphQL();
   const [name, setName] = useState("");
-  const [creator] = useState(() =>{
-    return localStorage.getItem("user") || "Chef";
-  });
+  const [creator, setCreator] = useState("");
+
   const [description, setDescription] = useState("");
   const [ingredients, setIngredients] = useState<Ingredient[]>([
     { name: "", quantity: "" },
   ]);
 
+  useEffect(() => {
+    setCreator(localStorage.getItem("user") || "Chef");
+  }, []);
+
   const saveRecipe = async (e: React.FormEvent) => {
     e.preventDefault();
-    if(creator){
-      addRecipe(name,creator, description, ingredients);
-    }
+    addRecipe(name, creator, description, ingredients);
   };
 
   const handleIngredientChange = (
@@ -64,7 +65,6 @@ const CreateRecipe: React.FC = () => {
         value={name}
         onChange={(e) => setName(e.target.value)}
         className="text-sm"
-
         required
       />
       <textarea
@@ -91,9 +91,7 @@ const CreateRecipe: React.FC = () => {
               onChange={(e) => handleIngredientChange(e, index)}
               required
               className="text-xs"
-
               autoComplete="off"
-
             />
             <input
               type="text"
@@ -103,9 +101,7 @@ const CreateRecipe: React.FC = () => {
               onChange={(e) => handleIngredientChange(e, index)}
               required
               className="text-xs"
-
               autoComplete="off"
-
             />
             <Button type="button" onClick={() => removeIngredient(index)}>
               {icons.iFaTrash}

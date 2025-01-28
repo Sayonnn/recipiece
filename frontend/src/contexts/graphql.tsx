@@ -59,7 +59,7 @@ export function GraphQLProvider({ children }: typeChildren) {
   ) => {
     const newName = name.charAt(0).toUpperCase() + name.slice(1, name.length);
     await createRecipe({
-      variables: { name: newName,creator:creator, description, ingredients },
+      variables: { name: newName, creator, description, ingredients },
     });
     window.location.reload();
   };
@@ -70,16 +70,15 @@ export function GraphQLProvider({ children }: typeChildren) {
     description: string,
     ingredients: Ingredient[]
   ) => {
-
     const newIngredients = ingredients.map((ing) => {
-      return {name:ing.name,quantity:ing.quantity}
-    })
-  
-    await updateRecipe({
-      variables: { id, name, description, ingredients:newIngredients },
+      return { name: ing.name, quantity: ing.quantity };
     });
 
-    alert("Updated Successfully")
+    await updateRecipe({
+      variables: { id, name, description, ingredients: newIngredients },
+    });
+
+    alert("Updated Successfully");
     closeEditor();
   };
 
@@ -89,8 +88,8 @@ export function GraphQLProvider({ children }: typeChildren) {
     }
   }, [data]);
 
-  const toggleModal = (e: React.MouseEvent<HTMLButtonElement,MouseEvent>) => {
-    e.stopPropagation(); 
+  const toggleModal = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     setIsModalOpen(!isModalOpen);
   };
 

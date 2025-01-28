@@ -16,10 +16,10 @@ function Recipe({ recipe }: typeRecipe) {
       key={recipe.id}
     >
       <span className="font-roboto  w-full flex justify-between items-center ">
-        <span className="text-[10px] rounded-tr-md bg-white p-1 border-l border-t  ">
-          {/* {recipe.creator} */}
+        <span className="text-[10px] rounded-tr-md bg-white p-1 border-l border-t  capitalize">
+          {recipe.creator}
         </span>
-        {user === "admin" && (
+        {(user.toLocaleLowerCase() === "chef" || user.toLocaleLowerCase() === "sayon") && (
           <div className="flex gap-2">
             <span
               className="p-1 rounded-tl-md text-orange-900 bg-white border-r border-t cursor-pointer"

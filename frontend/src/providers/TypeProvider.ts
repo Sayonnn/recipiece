@@ -8,6 +8,7 @@ export interface Ingredient {
 export type TypeRecipes = {
   id: string;
   recipeName: string;
+  creator: string;
   description: string | null;
   createdAt: string;
   thumbsUp: number;
@@ -37,7 +38,7 @@ export type typeChildren = {
 export type GraphQLContextType = {
   recipes: TypeRecipes[];
   removeRecipe: (id: string) => void;
-  addRecipe: (name:string,creator:string,description:string,ingredients:Ingredient[]) => void;
+  addRecipe: (name:string,creator:string, description:string,ingredients:Ingredient[]) => void;
   editRecipe: (id:string,name:string,description:string,ingredients:Ingredient[]) => void;
   toggleModal:(e: React.MouseEvent<HTMLButtonElement,MouseEvent>) => void;
   isModalOpen:boolean;
