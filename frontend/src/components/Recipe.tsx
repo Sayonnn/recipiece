@@ -7,12 +7,12 @@ function Recipe({ recipe }: typeRecipe) {
   const { removeRecipe, toggleViewer, toggleEditor } = useGraphQL();
 
   const [user] = useState(() => {
-    return localStorage.getItem("user") || "";
+    return sessionStorage.getItem("user") || "";
   });
 
   return (
     <li
-      className="rounded-lg shadow-md cursor-pointer hover:scale-105 transition duration-200"
+      className="rounded-lg shadow-md cursor-pointer hover:scale-105 transition duration-200 fadeIn"
       key={recipe.id}
     >
       <span className="font-roboto  w-full flex justify-between items-center ">

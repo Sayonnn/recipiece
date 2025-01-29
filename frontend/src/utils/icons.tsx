@@ -25,6 +25,9 @@ import { TbLayoutDashboardFilled } from "react-icons/tb";
 import { GiKnifeFork } from "react-icons/gi";
 import { TiHome } from "react-icons/ti";
 import { IoIosAddCircle } from "react-icons/io";
+import { FaMicrophone } from "react-icons/fa";
+import { FaMicrophoneSlash } from "react-icons/fa";
+
 
 
 const smIcon:number = 15;
@@ -40,6 +43,8 @@ export const icons = {
     iDash:<TbLayoutDashboardFilled size={lgIcon}/>,
     iFork:<GiKnifeFork size={mdIcon}/>,
     iFaPlus: <FaPlus size={smIcon}/>,
+    iFaMic: <FaMicrophone size={mdIcon}/>,
+    iFaMicSlash: <FaMicrophoneSlash size={mdIcon}/>,
     iFaEdit: <FaEdit size={smIcon}/>,
     iFaEye: <FaEye size={smIcon}/>,
     iFaEyeSlash: <FaEyeSlash size={smIcon}/>,

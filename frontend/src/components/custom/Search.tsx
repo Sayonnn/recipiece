@@ -20,15 +20,15 @@ function Search() {
   , [search, recipes]);
 
   return (
-    <span className="flex items-stretch justify-center  cursor-pointer border flex-row-reverse rounded-md">
-      <span className=" p-2  bg-orange-50" style={{ borderRadius: "inherit" }}>
+    <span className="flex items-stretch justify-center  cursor-pointer border flex-row-reverse rounded-md shadow-lg">
+      <span className=" p-2 grid place-content-center bg-orange-50" style={{ borderRadius: "inherit" }}>
         {icons.iSearchLine}
       </span>
       <input
         placeholder="Search..."
         name="ingredient"
         onChange={(e) => setSearch(e.target.value)}
-        className="font-normal font-sm focus:shadow-md focus:outline-none border-none"
+        className="font-normal font-sm focus:shadow-md focus:outline-none border-none p-2"
       ></input>
     </span>
   );

@@ -68,3 +68,14 @@ export type typeButton = {
   children:ReactNode;
   style?:string;
 }
+
+export type toastType = {
+  position:string,
+  autoClose: number,
+  hideProgressBar: boolean,
+  closeOnClick: boolean,
+  pauseOnHover: boolean,
+  draggable: boolean,
+  progress: undefined,
+
+}

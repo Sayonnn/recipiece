@@ -20,7 +20,7 @@ const ViewRecipe: React.FC = () => {
 
   return (
     <section
-      className="flex md:flex-row flex-col-reverse md:gap-2 gap-4 p-4 rounded-lg bg-none md:max-h-[400px] md:min-h-[400px]  max-h-[800px]  min-h-[400px] w-full md:w-[800px]  "
+      className="flex md:flex-row flex-col-reverse md:gap-2 gap-4 p-4 rounded-lg bg-none md:max-h-[400px] md:min-h-[400px]  max-h-[800px]  min-h-[400px] w-full md:w-[800px]  fadeIn"
       onDoubleClick={closeViewer}
     >
       <div

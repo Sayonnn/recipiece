@@ -1,13 +1,11 @@
-import Button from "./custom/Button";
-import logo from "../assets/images/4.png";
-import { InputField, PasswordField } from "./custom/input";
-import logo1 from "../assets/images/logo3.png";
+import Button from "../custom/Button";
+import logo from "../../assets/images/4.png";
+import { InputField, PasswordField } from "../custom/input";
+import logo1 from "../../assets/images/logo3.png";
 import {  useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { acc } from "../providers/DataProvider";
+import { authenticate } from "../../utils/authenticate";
 
-function Login() {
-  const navigate = useNavigate();
+function LoginForm() {
   const [known, setKnown] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [values, setValues] = useState({
@@ -22,23 +20,16 @@ function Login() {
 
   const goLogin = () => {
     setLoading(true);
-    if (values.password !== acc.password) {
-      setKnown(false);
+    const authenticated = authenticate.startLogin(values.password,values.username,setLoading);
+    if(!authenticated){
+      setKnown(authenticated);
       return;
     }
-    localStorage.setItem("user", values.username);
-
-    setKnown(true);
-    setTimeout(() => {
-      navigate("/home");
-      setLoading(false);
-    }, 2000);
+    setKnown(authenticated);
   };
 
-
-
   return (
-    <section className="rounded-lg relative gap-2 shadow-lg overflow-hidden">
+    <section className="rounded-lg relative gap-2 shadow-lg overflow-hidden fadeIn">
       <img
         src={logo1}
         loading="lazy"
@@ -89,4 +80,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;

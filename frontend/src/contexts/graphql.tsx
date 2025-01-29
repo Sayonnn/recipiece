@@ -17,6 +17,9 @@ import {
 import { useMutation, useQuery } from "@apollo/client";
 import Loading from "../components/custom/Loading";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const graphqlContext = createContext<GraphQLContextType | null>(null);
 
 export function GraphQLProvider({ children }: typeChildren) {
@@ -46,6 +49,8 @@ export function GraphQLProvider({ children }: typeChildren) {
       return;
     }
 
+    toast("Recipe Deleted Successfully");
+
     setRecipes((prev) => {
       const newRecipes = prev.filter((recipe) => recipe.id !== id);
       return newRecipes;
@@ -54,7 +59,7 @@ export function GraphQLProvider({ children }: typeChildren) {
 
   const addRecipe = async (
     name: string,
-    creator:string,
+    creator: string,
     description: string,
     ingredients: Ingredient[]
   ) => {
@@ -62,7 +67,10 @@ export function GraphQLProvider({ children }: typeChildren) {
     await createRecipe({
       variables: { name: newName, creator, description, ingredients },
     });
-    window.location.reload();
+    toast("Recipe Added Successfully");
+    setTimeout(() => {
+      window.location.reload();
+    },3000)
   };
 
   const editRecipe = async (
@@ -79,7 +87,7 @@ export function GraphQLProvider({ children }: typeChildren) {
       variables: { id, name, description, ingredients: newIngredients },
     });
 
-    alert("Updated Successfully");
+    toast("Recipe Updated Successfully");
     closeEditor();
   };
 
@@ -132,6 +140,7 @@ export function GraphQLProvider({ children }: typeChildren) {
         setRecipesClone,
       }}
     >
+      <ToastContainer/>
       {children}
     </graphqlContext.Provider>
   );

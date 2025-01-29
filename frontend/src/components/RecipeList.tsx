@@ -22,11 +22,9 @@ const RecipeList: React.FC = () => {
     const newRecipes = recipes.slice(start, offset);
     setRecipesClone(newRecipes);
   }, [recipes, currentPage]);
-
- 
-
+  
   return (
-    <div className="col-span-12  p-4 z-20">
+    <div className="col-span-12  p-4 z-20 fadeIn">
       <NavBar />
       <Pagination
         navigatePage={navigatePage}

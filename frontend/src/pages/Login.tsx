@@ -2,11 +2,11 @@ import videoSrc from "../assets/videos/video1.mp4";
 import mobile from "../assets/images/mobile1.jpg";
 import CImage from "../components/custom/CImage";
 import CVideo from "../components/custom/CVideo";
-import Login from "../components/Login";
+import LoginForm from "../components/crud/LoginForm";
 import { useEffect, useState } from "react";
 import Loading from "./../components/custom/Loading";
 
-const Welcome = () => {
+const Login = () => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
@@ -16,6 +16,10 @@ const Welcome = () => {
       setIsVideoLoaded(true);
     };
     video.load();
+
+    return () => {
+      video.remove();
+    };
   }, []);
 
   return isVideoLoaded ? (
@@ -25,11 +29,11 @@ const Welcome = () => {
       </h1>
       <CVideo video={videoSrc} style="md:block hidden" />
       <CImage image={mobile} style="md:hidden block" />
-      <Login />
+      <LoginForm />
     </main>
   ) : (
     <Loading />
   );
 };
 
-export default Welcome;
+export default Login;
