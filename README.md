@@ -4,8 +4,6 @@
 - typescript
 - mongodb
 - tailwindcss
-- ThreeJS
-- GSAP
 
 ### cd frontend 
 - npm install
