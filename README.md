@@ -1,4 +1,4 @@
-### Finance Management System 
+### Recipiece - Recipe Management System ( cooking companion )
 - graphql
 - react
 - typescript
